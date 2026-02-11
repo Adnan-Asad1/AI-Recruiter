@@ -1,0 +1,65 @@
+# Laravel & PHP
+/.phpunit.cache
+/vendor
+/storage/*.key
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/storage/logs/*
+/bootstrap/cache/*
+auth.json
+
+# Node & Frontend
+/node_modules
+/public/build
+/public/hot
+/public/storage
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Environment & Configuration
+.env
+.env.backup
+.env.production
+.env.local
+.env.*.local
+
+# IDE & Editors
+/.fleet
+/.idea
+/.vscode
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Homestead & Vagrant
+Homestead.json
+Homestead.yaml
+.vagrant
+
+# Build & Cache
+/public/mix-manifest.json
+/public/css
+/public/js
+*.log
+
+# Composer
+composer.phar
+composer.lock
+
+# Testing
+/coverage
+/.phpunit.result.cache
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
