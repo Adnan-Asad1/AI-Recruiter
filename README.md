@@ -18,7 +18,7 @@
 - 📄 **Resume Analysis** - AI-powered resume screening and candidate evaluation
 - 📊 **Detailed Reporting** - Comprehensive interview reports and candidate assessments
 - 💳 **Integrated Billing** - Stripe payment integration for premium features
-- 📧 **Email Notifications** - Automated email system for interview invitations
+- 📧 **Email Notifications** - Automated email system for interview invitations.
 
 ## 🚀 Features
 
