@@ -1,4 +1,4 @@
-# 🎯 Smart-Hire - AI-Powered Recruitment Platform
+# 🎯Ai Recruiter - AI-Powered Recruitment Platform
 
 <p align="center">
   <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
@@ -8,9 +8,8 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 </p>
 
-## 📖 About Smart-Hire
-
-**Smart-Hire** is an innovative AI-powered recruitment platform that revolutionizes the hiring process by automating technical interviews. The system leverages advanced AI to generate role-specific interview questions, conduct live interviews with real-time speech-to-text transcription, and provide comprehensive candidate assessments.
+## 📖 About Ai Recruiter 
+**Ai Recruiter** is an innovative AI-powered recruitment platform that revolutionizes the hiring process by automating technical interviews. The system leverages advanced AI to generate role-specific interview questions, conduct live interviews with real-time speech-to-text transcription, and provide comprehensive candidate assessments.
 
 ### ✨ Key Highlights
 
