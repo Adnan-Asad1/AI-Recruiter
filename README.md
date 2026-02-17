@@ -130,7 +130,7 @@ php artisan key:generate
 
 ### 5. Configure Environment Variables
 
-Open `.env` and configure the following:
+Open `.env` and configure the following
 
 #### Database Configuration
 ```env
