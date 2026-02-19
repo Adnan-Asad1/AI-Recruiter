@@ -234,7 +234,7 @@ The application will be available at `http://localhost:8000`
 4. **Candidate Takes Interview**
    - Candidate clicks the link and joins the interview
    - Live audio interview with real-time transcription
-   - AI asks questions and records responses
+   - AI asks questions and records responses.
 
 5. **Review Results**
    - View all interviews from "All Interviews" page
