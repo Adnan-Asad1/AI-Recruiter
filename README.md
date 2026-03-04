@@ -1,4 +1,4 @@
-# 🎯Ai Recruiter - AI-Powered Recruitment Platform
+# 🎯 Smart-Hire - AI-Powered Recruitment Platform
 
 <p align="center">
   <img src="https://img.shields.io/badge/Laravel-10.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
@@ -8,8 +8,9 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 </p>
 
-## 📖 About Ai Recruiter 
-**Ai Recruiter** is an innovative AI-powered recruitment platform that revolutionizes the hiring process by automating technical interviews. The system leverages advanced AI to generate role-specific interview questions, conduct live interviews with real-time speech-to-text transcription, and provide comprehensive candidate assessments.
+## 📖 About Smart-Hire
+
+**Smart-Hire** is an innovative AI-powered recruitment platform that revolutionizes the hiring process by automating technical interviews. The system leverages advanced AI to generate role-specific interview questions, conduct live interviews with real-time speech-to-text transcription, and provide comprehensive candidate assessments.
 
 ### ✨ Key Highlights
 
@@ -18,7 +19,7 @@
 - 📄 **Resume Analysis** - AI-powered resume screening and candidate evaluation
 - 📊 **Detailed Reporting** - Comprehensive interview reports and candidate assessments
 - 💳 **Integrated Billing** - Stripe payment integration for premium features
-- 📧 **Email Notifications** - Automated email system for interview invitations.
+- 📧 **Email Notifications** - Automated email system for interview invitations
 
 ## 🚀 Features
 
@@ -130,7 +131,7 @@ php artisan key:generate
 
 ### 5. Configure Environment Variables
 
-Open `.env` and configure the following
+Open `.env` and configure the following:
 
 #### Database Configuration
 ```env
@@ -234,7 +235,7 @@ The application will be available at `http://localhost:8000`
 4. **Candidate Takes Interview**
    - Candidate clicks the link and joins the interview
    - Live audio interview with real-time transcription
-   - AI asks questions and records responses.
+   - AI asks questions and records responses
 
 5. **Review Results**
    - View all interviews from "All Interviews" page
@@ -409,7 +410,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - AssemblyAI for speech recognition
 - GROQ for AI capabilities
 - Stripe for payment processing
-- All contributors and supporter
+- All contributors and supporters
 
 ## 📧 Support
 
