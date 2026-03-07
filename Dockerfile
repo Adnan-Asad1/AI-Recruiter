@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo pdo_pgsql pgsql pdo_mysql zip gd bcmath
+RUN docker-php-ext-install pdo pdo_pgsql pgsql pdo_mysql pdo_sqlite zip gd bcmath
 
 # Set Apache DocumentRoot to point to Laravel's public directory
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
