@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
-class InterviewDetails_controller extends Controller
+class InterviewDetails_Controller extends Controller
 {
-    
+
     public function dashboard()
     {
 
-       $interviews = Auth::user()->interviewers
-                ->sortByDesc('created_at') // descending order by created_at
-                ->take(3);                 // latest 3 interviews
+        $interviews = Auth::user()->interviewers
+            ->sortByDesc('created_at') // descending order by created_at
+            ->take(3);                 // latest 3 interviews
 
         return view('dashboard', compact('interviews'));
 
@@ -33,8 +33,8 @@ class InterviewDetails_controller extends Controller
     {
         // Auth users, -> ALL interviewers, -> those whose conversations Exist
         $interviews = Auth::user()->interviewers
-        ->filter(fn($interview) => $interview->conversations !== null)
-        ->sortByDesc('created_at');
+            ->filter(fn($interview) => $interview->conversations !== null)
+            ->sortByDesc('created_at');
 
         return view('interview_Details.Interview_Details', compact('interviews'));
     }
@@ -45,8 +45,8 @@ class InterviewDetails_controller extends Controller
         return view('interview_Details.show_specific_card', compact('interview'));
     }
 
-    
-   public function specific_card_report($id)
+
+    public function specific_card_report($id)
     {
         // Step 1: Find interview
         $interview = Interviewer::findOrFail($id);
@@ -54,14 +54,12 @@ class InterviewDetails_controller extends Controller
         // Step 2: Check if report already exists (via conversation relation)
         $report = $interview->conversations?->report;
 
-       if ($report) {
-           // Report exists in DB (stored JSON)
+        if ($report) {
+            // Report exists in DB (stored JSON)
             $sections = json_decode($report->report, true) ?? [];
-            
-            return view('interview_Details.specific_card_report', compact('interview', 'sections'));
-        }
 
-        else {
+            return view('interview_Details.specific_card_report', compact('interview', 'sections'));
+        } else {
             // Step 3: Get conversation row
             $conversationRow = Conversation::where('interviewer_id', $id)->first();
 
@@ -80,13 +78,13 @@ class InterviewDetails_controller extends Controller
                 'Authorization' => 'Bearer ' . env('GROQ_API_KEY'),
                 'Content-Type' => 'application/json',
             ])->post('https://api.groq.com/openai/v1/chat/completions', [
-                'model' => 'llama-3.3-70b-versatile',
-                'messages' => [
-                    ['role' => 'user', 'content' => $prompt]
-                ],
-                'temperature' => 0.6,
-                'max_tokens' => 1200,
-            ]);
+                        'model' => 'llama-3.3-70b-versatile',
+                        'messages' => [
+                            ['role' => 'user', 'content' => $prompt]
+                        ],
+                        'temperature' => 0.6,
+                        'max_tokens' => 1200,
+                    ]);
 
             $reportText = $response->json('choices.0.message.content', 'No report generated.');
 
@@ -100,7 +98,7 @@ class InterviewDetails_controller extends Controller
             // Step 8: Save new report in DB linked to conversation_id
             $report = Report::create([
                 'conversation_id' => $conversationRow->id,
-                'report'          => json_encode($sections), // ✅ store JSON
+                'report' => json_encode($sections), // ✅ store JSON
             ]);
 
             return view('interview_Details.specific_card_report', compact('interview', 'sections'));
@@ -112,12 +110,12 @@ class InterviewDetails_controller extends Controller
     private function buildGroqPrompt($interview, $conversation)
     {
         $questions = is_string($interview->question)
-        ? json_decode($interview->question, true) ?? []
-        : ($interview->question ?? []);
+            ? json_decode($interview->question, true) ?? []
+            : ($interview->question ?? []);
 
         $types = implode(', ', $interview->interview_types ?? []);
 
-       $convText = collect($conversation)->map(function($c){
+        $convText = collect($conversation)->map(function ($c) {
             return "AI: {$c['ai']}\nUser: {$c['user']}";
         })->implode("\n\n");
 
@@ -132,21 +130,21 @@ class InterviewDetails_controller extends Controller
             - Job Description: {$interview->job_description}
             - Interview Duration: {$interview->duration} minutes
             - Interview Type(s): {$types}
-            - Total Questions (Planned): ".count($questions)."
+            - Total Questions (Planned): " . count($questions) . "
 
             Conversation Transcript (for your analysis only):
             {$convText}
 
             ⚠ Strict Analysis Rules:
             - Base the evaluation ONLY on the conversation transcript.
-            - Use the Planned Questions list as the ground truth (".count($questions)." total).
+            - Use the Planned Questions list as the ground truth (" . count($questions) . " total).
             - Identify which planned questions were actually asked in the conversation (even if rephrased).
             - If a question was repeated casually, count it only once.
             - For each planned question:
             • If the user gave a valid, relevant answer → mark as Attempted  
             • If the user gave no answer or an irrelevant response → mark as Skipped/Not Attempted
             - In the \"Attempt Summary\", clearly show:
-            • Total Planned Questions = ".count($questions)."
+            • Total Planned Questions = " . count($questions) . "
             • Actual Unique Questions Asked (from conversation)
             • Attempted (valid answers)
             • Skipped / Irrelevant / Not Attempted
@@ -193,7 +191,8 @@ class InterviewDetails_controller extends Controller
 
         foreach ($parts as $p) {
             $content = trim(str_replace("\\", "", $p));
-            if (!$content) continue;
+            if (!$content)
+                continue;
             $lines = explode("\n", $content);
             $heading = array_shift($lines);
             $body = implode("\n", $lines);
@@ -214,4 +213,4 @@ class InterviewDetails_controller extends Controller
     }
 
 
- }
+}
