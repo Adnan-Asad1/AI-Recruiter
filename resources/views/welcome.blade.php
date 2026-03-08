@@ -135,7 +135,7 @@
   <!-- Smart Hire Branding Outro -->
   <section class="bg-[#F4F7FE] py-32 mt-24 min-h-[75vh]">
     <div class="flex justify-center items-center" data-aos="fade-up" data-aos-duration="1200">
-      <h1 class="text-[80px] md:text-[120px] font-extrabold text-gray-900 tracking-tight">
+      <h1 class="text-[48px] sm:text-[80px] md:text-[120px] font-extrabold text-gray-900 tracking-tight">
         Smart <span class="text-[#0377FC]">Hire</span>
       </h1>
     </div>
