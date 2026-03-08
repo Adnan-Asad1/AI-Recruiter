@@ -251,14 +251,6 @@
             // --- Recognition event handlers ---
             recognition.onstart = () => {
                 recognizing = true;
-                // ✅ CRITICAL FIX: Reset transcript on every new session.
-                // On Android Chrome, onresult fires with resultIndex=0 on every internal restart,
-                // which re-appends already-seen text to currentTranscript causing repeated text.
-                // Resetting here ensures each session captures only fresh speech.
-                currentTranscript = "";
-                transcriptFinal.textContent = "";
-                transcriptPartial.textContent = "";
-
                 updateMicButtonUI(true);
                 console.log("Recognition started");
 
