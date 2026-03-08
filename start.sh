@@ -10,13 +10,15 @@ fi
 chown www-data:www-data /var/www/html/database/database.sqlite
 chmod 664 /var/www/html/database/database.sqlite
 
+# Clear any stale cached config (important on Render)
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
+
 # Run Laravel migrations automatically before starting the server
 php artisan migrate --force
 
-# Clear and cache configurations
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-
 # Start the Apache server
 apache2-foreground
+
